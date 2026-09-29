@@ -114,8 +114,12 @@ thebigby01@device ~/D/d/t/TASK6 (main)>
 2. add healthcheck to the database.
 3. make the backend depend on databse service.
 
-# Task 9 — Reverse Proxy
+# Task 9 — Reverse Proxy**
 ## Task 9
+1. mainly i created two nginx containers, one for the frontend and one for the backend. -> exposed their port 80
+2. created backend and frontend container, that use the frontend and backend images respectively.
+3. create a nginx service, that uses the default.conf file to proxy requests to the backend and frontend containers.
+4. the container use internal networking to communicate with each other.
 
 # 🔥 Troubleshooting Tasks
 ## Task 11 — Container Keeps Restarting
