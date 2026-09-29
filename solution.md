@@ -121,5 +121,9 @@ thebigby01@device ~/D/d/t/TASK6 (main)>
 3. create a nginx service, that uses the default.conf file to proxy requests to the backend and frontend containers.
 4. the container use internal networking to communicate with each other.
 
+# Task 10 — Production Compose Stack
+## Task 10
+1. created a basic express app with AI. / -> returns all entry, /log -> logs the current timestamp in the db
+
 # 🔥 Troubleshooting Tasks
 ## Task 11 — Container Keeps Restarting
