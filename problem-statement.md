@@ -463,19 +463,19 @@ Build this complete stack:
 ```text
                          Internet
                             │
-                                                 ▼
+                            ▼
                        ┌─────────┐
                        │  Nginx  │
                        └────┬────┘
                             │
                  ┌──────────┴──────────┐
                  │                     │
-                              ▼                                    ▼
+                 ▼                     ▼
              Frontend              Backend
                                       │
                          ┌────────────┼────────────┐
                          │            │            │
-                                            ▼                    ▼                     ▼
+                         ▼            ▼            ▼
                       Postgres      Redis        Worker
 ```
 

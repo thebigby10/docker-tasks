@@ -107,3 +107,15 @@ thebigby01@device ~/D/d/t/TASK6 (main)>
 # Task 7 — Environment Variables
 ## Task 7
 1. use the ${variable_name} to inject .env variables in the docker-compose
+
+# Task 8 — Health Checks
+## Task 8
+1. create two services called backend and databse.
+2. add healthcheck to the database.
+3. make the backend depend on databse service.
+
+# Task 9 — Reverse Proxy
+## Task 9
+
+# 🔥 Troubleshooting Tasks
+## Task 11 — Container Keeps Restarting
