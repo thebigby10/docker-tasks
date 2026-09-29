@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  Nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    networks:
+      - internal
+
+  MySQL:
+    image: mysql:latest
+    networks:
+      - internal
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+
+networks:
+  internal:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
