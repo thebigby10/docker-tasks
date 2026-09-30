@@ -185,6 +185,17 @@ X@device ~/D/d/t/TASK6 (main)>
 3. to verify - `docker volume ls` to see if the volume exists. and then `docker compose down` and then `docker compose up -d` to check if data persists.
 
 ## Task 14 — Image Too Large
+to reduce the image size, i'll use these stratagies
+1. multi-stage build - to seperate the production and development builds. i'll copy only the necessary data in the production build.
+2. use smaller base images.
+3. use .dockerignore to exclude files.
+4. remember the caching and the layering of the image. if a data is added to the image, it will stay in cache.
+5. use slim toolkit(https://github.com/slimtoolkit/slim) and dive(https://github.com/wagoodman/dive) to inspect the built image layers, and further reduce the size. specially i'll use slim.
+
+## Task 15 — Zero-Downtime Application Update
+I actually have little idea about this one.
+1. I'll create a backend-v2 and add that to the nginx.
+2. then i'll replace the other backend service with the new one.
 
 
 
