@@ -177,4 +177,8 @@ thebigby01@device ~/D/d/t/TASK6 (main)>
 
 1. created a mini backend that uses Postgres, Redis and Worker. (The backend is created using AI.)
 2. the frontend uses an nginx server to serve the static files. - mainly a frontend server.
-3.
+3. now i first created three services: database, redis and worker. as these do not depend on anything. then i added to a internal network called `backend`. also added volume to the database.
+4.and then i created a Dockerfile for the backend. which uses multi-stage build. and then I created a backend service is docker-compose. this has the `backend` network and then another network called internal, for frontend communication.
+5.then i created nginx service. it has the interal network to communicate with the frontend and the backend.
+6. mainly this nginx routes / -> frontend and /api -> backend. and this exposed the 8080 port to the host.
+7. so all the other service is is not reachable from the host machine. they only communicate with each other within the `backend` network. and the nginx server is the only one exposed to the host.
