@@ -1,4 +1,5 @@
 # solution.md
+this is the main solution approch of the problem. and the actual solution is in the TASK{1..10} and Final folder.
 # Task 1 — Dockerfile Basics
 
 ## TASK1 - the index.html is ai generate
