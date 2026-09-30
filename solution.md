@@ -1,34 +1,46 @@
 # Task 1 — Dockerfile Basics
+
 ## TASK1 - the index.html is ai generate
-1. create Dockerfile 
+
+1. create Dockerfile
 2. build the docker image with `docker build -t my-nginx:v1 .`
 3. run the docker image with `docker run -d -p 8080:80 my-nginx:v1`
 4. Testing: `curl localhost:8080`
+
 #### Output
+
 ```bash
 
 ```
 
 # Task 2 — Multi-stage Docker Build
+
 ## TASK2 - the basic project is ai generated
+
 1. create Dockerfile with multi-stage build
 2. use `COPY --from=builder` to copy files from builder stage to final stage
 3. build the docker image with `docker build -t node-app:v1 .`
 4. run the docker image with `docker run -d -p 3000:3000 node-app:v1`
 5. test the application with `curl localhost:3000`
+
 #### Output
+
 ```bash
 
 ```
 
 # Task 3 — Docker Networking
+
 ## Task 3
+
 1. create two seperate project for client and nginx - the client is going to attempt to curl the nginx server.
 2. create a custom network called `app-network`.
 3. create a Dockerfile for nginx and run that project. **must name the image 'nginx' with --name and use the custom network `app-network`**
 4. now run a alpine image with `docker run --network app-network -it alpine:latest sh` . this will run a alpine image and open interactive shell of that image.
 5. now test the connection with `wget -qO- http://nginx`
+
 #### Output
+
 ```bash
 / # wget -qO- http://nginx
 Hello World! x3
@@ -36,9 +48,12 @@ Hello World! x3
 ```
 
 # Task 4 — Docker Volume
+
 ## Task 4
+
 1. create a persistent volumn with `docker volume create` called `mysql-volume`
-2. while running the mysql container use the docker volumn with -v 
+2. while running the mysql container use the docker volumn with -v
+
 ```bash
     docker run -d \
         --name my-mysql \
@@ -52,11 +67,15 @@ Hello World! x3
 ```
 
 # Task 5 — Basic Compose Application
+
 ## Task 5
-1. create `docker-compose.yml` 
+
+1. create `docker-compose.yml`
 2. run `docker-compose up` to start the services.
 3. test using `docker compose ps`
+
 #### Output
+
 ```bash
 thebigby01@device ~/D/d/t/TASK5> docker compose ps
 WARN[0000] /Users/thebigby01/Developer/docker/tasks/TASK5/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
@@ -67,17 +86,21 @@ thebigby01@device ~/D/d/t/TASK5>
 ```
 
 # Task 6 — WordPress Stack
+
 ## Task 6
+
 1. create a docker-compose.yml file. use two services wordpress and db.
 
-  a. add custom network `wordpress_net`
-  b. add restart policy
-  c. add environment variables from .env
-  d. persistenet volumn for db and wordpress.
-  
+a. add custom network `wordpress_net`
+b. add restart policy
+c. add environment variables from .env
+d. persistenet volumn for db and wordpress.
+
 2. run `docker-compose up` to start the services.
 3. test using `docker compose ps`
+
 #### Output
+
 ```bash
 thebigby01@device ~/D/d/t/TASK6 (main) [SIGINT]> docker compose up -d
                                                  docker compose ps
@@ -105,24 +128,32 @@ thebigby01@device ~/D/d/t/TASK6 (main)>
 ```
 
 # Task 7 — Environment Variables
+
 ## Task 7
+
 1. use the ${variable_name} to inject .env variables in the docker-compose
 
 # Task 8 — Health Checks
+
 ## Task 8
+
 1. create two services called backend and databse.
 2. add healthcheck to the database.
 3. make the backend depend on databse service.
 
-# Task 9 — Reverse Proxy**
+# Task 9 — Reverse Proxy **
+
 ## Task 9
+
 1. mainly i created two nginx containers, one for the frontend and one for the backend. -> exposed their port 80
 2. created backend and frontend container, that use the frontend and backend images respectively.
 3. create a nginx service, that uses the default.conf file to proxy requests to the backend and frontend containers.
 4. the container use internal networking to communicate with each other.
 
-# Task 10 — Production Compose Stack
+# Task 10 — Production Compose Stack **
+
 ## Task 10
+
 1. created a basic express app with AI. / -> returns all entry, /log -> logs the current timestamp in the db
 2. created 3 services: backend, database, and nginx.
 3. the database service has a persistent volume, a network called internal(connects with the backend), and a healthcheck.
@@ -130,7 +161,19 @@ thebigby01@device ~/D/d/t/TASK6 (main)>
 5. the nginx service uses the default.conf file to proxy requests to the backend. with resource limit and logging.
 
 # 🔥 Troubleshooting Tasks
+
 ## Task 11 — Container Keeps Restarting
 
-# ⭐ Final Challenge
-## Final -
+1. First of all, because I need to save the application data. I should use a persistent volume and don't use `docker compose down -v`.
+2. I'll look for the logs of the container to see what's going on. If anything is throwing errors. `docker logs backend`
+3. Then I'll run the `docker inspect backend`. and feed that data to an LLM. as this is the detailed config file. It'll take a long time to analyze this myself.
+4. Then I'll run `docker stats` to check if the resource allication is working properly. And/Or if it's bottlenecking.
+
+## Task 12 — Container Cannot Connect to Database
+
+# ⭐ Final Challenge **
+
+## Final
+
+1. created a mini backend that uses Postgres, Redis and Worker. (The backend is created using AI.)
+2.
