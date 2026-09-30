@@ -478,5 +478,3 @@ Build this complete stack:
                          ▼            ▼            ▼
                       Postgres      Redis        Worker
 ```
-
-@ferdous.mim @abidur.rahman

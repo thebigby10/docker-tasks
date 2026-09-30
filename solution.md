@@ -124,6 +124,13 @@ thebigby01@device ~/D/d/t/TASK6 (main)>
 # Task 10 — Production Compose Stack
 ## Task 10
 1. created a basic express app with AI. / -> returns all entry, /log -> logs the current timestamp in the db
+2. created 3 services: backend, database, and nginx.
+3. the database service has a persistent volume, a network called internal(connects with the backend), and a healthcheck.
+4. the backend uses the Dockerfile of the backend image, has two networks: internal and external(connects with the nginx) and a healthcheck. So this does not expose directyl to the host machine. And uses the database service to connect to the database.
+5. the nginx service uses the default.conf file to proxy requests to the backend. with resource limit and logging.
 
 # 🔥 Troubleshooting Tasks
 ## Task 11 — Container Keeps Restarting
+
+# ⭐ Final Challenge
+## Final -
