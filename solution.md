@@ -176,4 +176,5 @@ thebigby01@device ~/D/d/t/TASK6 (main)>
 ## Final
 
 1. created a mini backend that uses Postgres, Redis and Worker. (The backend is created using AI.)
-2.
+2. the frontend uses an nginx server to serve the static files. - mainly a frontend server.
+3.

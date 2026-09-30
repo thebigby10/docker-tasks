@@ -70,6 +70,7 @@ services:
       - WORKER_POLL_INTERVAL=${WORKER_POLL_INTERVAL}
     networks:
       - backend
+      - internal
     command: npm run db:seed && npm run start
     depends_on:
       redis:
@@ -79,6 +80,29 @@ services:
       worker:
         condition: service_started
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    networks:
+      - backend
+      - internal
+    depends_on:
+      - backend
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - internal
+      - outgoing
+    depends_on:
+      - backend
+      - frontend
+
 
 volumes:
   postgres_data:
@@ -86,4 +110,8 @@ volumes:
 
 networks:
   backend:
+    driver: bridge
+  internal:
+    driver: bridge
+  outgoing:
     driver: bridge
